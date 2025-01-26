@@ -30,7 +30,7 @@ url_shortner/
 
 1. **Clone the Repository:**
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/EmptyAd/URL-Shortener
    cd url_shortner
    ```
 
