@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>URL Shortener</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+    }
+    input, button {
+      padding: 8px;
+      margin: 10px 0;
+      font-size: 16px;
+    }
+    label {
+      font-size: 18px;
+    }
+    .result {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>URL Shortener</h1>
+  <form method="post" action="/">
+    <label for="url">Enter an https:// URL:</label>
+    <input type="url"
+      name="url"
+      id="url"
+      placeholder="https://www.example.com"
+      pattern="https://.*" 
+      size="50"
+      {% if old_url %}value="{{ old_url }}"{% endif %}
+      required>
+    <button type="submit" value="submit">Submit</button>
+    
+    {% if new_url %}
+    <div class="result">
+      <h2>Shortened URL</h2>
+      <p>Original: <a href="{{ old_url }}" target="_blank">{{ old_url }}</a></p>
+      <p>Shortened: <a href="{{ new_url }}" target="_blank">{{ new_url }}</a></p>
+    </div>
+    {% endif %}
+  </form>
+</body>
+</html>
